@@ -4,9 +4,10 @@ import csv
 try:
     # Create input file with 'watch -n 1 'cat /proc/meminfo >> /run/media/nvme/meminfo.log && date >> /run/media/nvme/meminfo.log''
 
-    # NOTE: This is 50 on the talon
+    # TODO: Get this value from the system
     MEMINFO_LEN = 50
 
+    # TODO: Make this an argument
     #filepath = '/home/jarrodn/meminfo.log';
     #filepath = '/run/media/nvme/meminfo.log';
     filepath = './meminfo.log';
@@ -42,9 +43,6 @@ try:
 
             # Add the time and then start a new row
             if cnt == MEMINFO_LEN - 1:
-                print("End of row")
-                print("cnt = {}", cnt)
-                print(splitline)
                 values.append(splitline[3])
                 csvwriter.writerow(values)
                 # Reset count 
